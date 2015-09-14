@@ -11,7 +11,7 @@
     "text" : "Loving this Polymer thing.",
     "username" : "Rob",
     "avatar" : "../images/avatar-02.svg",
-    "favorite": false
+    "favorite": true
   },
     {
     "uid": 3,
