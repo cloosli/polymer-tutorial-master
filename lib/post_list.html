@@ -1,6 +1,6 @@
-<link rel="import" href="../components/polymer/polymer.html">
-<link rel="import" href="../post-service/post-service.html">
-<link rel="import" href="post-card.html">
+<link rel="import" href="../../packages/polymer/polymer.html">
+<link rel="import" href="post_service.html">
+<link rel="import" href="post_card.html">
 
 <polymer-element name="post-list" attributes="show">
   <template>
@@ -13,11 +13,11 @@
       margin-bottom: 30px;
     }
     </style>
-    
+
     <post-service id="service" posts="{{posts}}"></post-service>
-    
+
     <div layout vertical center>
-      
+
       <template repeat="{{post in posts}}">
         <post-card favorite="{{post.favorite}}"
         on-favorite-tap="{{handleFavorite}}"
@@ -27,11 +27,12 @@
           <p>{{post.text}}</p>
         </post-card>
       </template>
-      
-    </div>
-    
-  </template>
 
+    </div>
+
+  </template>
+  <script type="application/dart" src="post_list.dart"></script>
+  <!--
   <script>
   Polymer({
     handleFavorite: function(event, detail, sender) {
@@ -40,5 +41,5 @@
     }
   });
   </script>
-
+-->
 </polymer-element>

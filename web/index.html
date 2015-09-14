@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!--
-  Copyright (c) 2015, <your name>. All rights reserved. Use of this source code
+  Copyright (c) 2015, <Christian Loosli>. All rights reserved. Use of this source code
   is governed by a BSD-style license that can be found in the LICENSE file.
 -->
 
@@ -10,8 +10,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="scaffolded-by" content="https://github.com/google/stagehand">
-  <title>dart_client</title>
+  <title>Simple Polymer Application</title>
 
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -29,17 +28,35 @@
 
   <!-- example of using a paper element -->
   <link rel="import" href="packages/paper_elements/roboto.html">
+  <link rel="import" href="packages/core_elements/core_header_panel.html">
+  <link rel="import" href="packages/core_elements/core_toolbar.html">
+  <link rel="import" href="packages/paper_elements/paper_tabs.html">
+  <link rel="import" href="packages/paper_elements/paper_tab.html">
 
   <!-- example of your own custom element -->
-  <link rel="import" href="packages/dart_client/main_app.html">
+  <link rel="import" href="packages/dart_client/post_card.html">
 
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body unresolved>
+  <core-header-panel>
+    <core-toolbar>
+      <paper-tabs id="tabs" selected="all" self-end>
+        <paper-tab name="all">All</paper-tab>
+        <paper-tab name="favorites">Favorites</paper-tab>
+      </paper-tabs>
+    </core-toolbar>
 
-  <main-app></main-app>
+    <div class="container" layout vertical center>
+      <post-card>
+        <img src="images/avatar-01.svg" width="70" height="70">
+        <h2>Title</h2>
+        <p>text</p>
+      </post-card>
+    </div>
 
+  </core-header-panel>
   <script type="application/dart">export 'package:polymer/init.dart';</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
-<link rel="import" href="../components/polymer/polymer.html">
-<link rel="import" href="../components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../../packages/polymer/polymer.html">
+<link rel="import" href="../../packages/core_elements/core_icon_button.html">
 
 <polymer-element name="post-card">
   <template>
@@ -49,9 +49,10 @@
       on-tap="{{favoriteTapped}}">
     </core-icon-button>
     <content></content>
-    
+
   </template>
-  <script>
+  <script type="application/dart" src="post_card.dart"></script>
+  <!--<script>
   Polymer({
     publish: {
       favorite: {
@@ -64,5 +65,5 @@
       this.fire('favorite-tab');
     }
   });
-  </script>
+  </script> -->
 </polymer-element>

@@ -5,7 +5,7 @@
 
   <title>Simple Polymer Application</title>
 
-  <meta name="viewport" 
+  <meta name="viewport"
   content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
   <script src="../components/webcomponentsjs/webcomponents.js">
@@ -19,7 +19,7 @@
   <link rel="import"
     href="../components/paper-tabs/paper-tabs.html">
   <link rel="import" href="post-list.html">
-  
+
   <style>
   html,body {
     height: 100%;
@@ -69,20 +69,20 @@ core-toolbar {
         <paper-tab name="favorites">Favorites</paper-tab>
       </paper-tabs>
     </core-toolbar>
-    
+
     <div class="container" layout vertical center>
       <post-list show="all"></post-list>
     </div>
-    
+
   </core-header-panel>
   <script>
     var tabs = document.querySelector('paper-tabs');
     var list = document.querySelector('post-list');
-    
+
     tabs.addEventListener('core-select', function() {
       list.show = tabs.selected;
     });
-    
+
   </script>
 </body>
 

@@ -1,8 +1,7 @@
 name: 'dart_client'
 version: 0.0.1
 description: A web app built using polymer.dart.
-#author: Your Name <email@example.com>
-#homepage: https://www.example.com
+author: Christian Loosli <christian.loosli@example.com>
 
 environment:
   sdk: '>=1.0.0 <2.0.0'
