@@ -1,44 +1,37 @@
-// Copyright (c) 2015, <your name>. All rights reserved. Use of this source code
+// Copyright (c) 2015, <Christian Loosli>. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
-
 import 'dart:html';
-
-import 'package:paper_elements/paper_input.dart';
+import 'dart:convert';
 import 'package:polymer/polymer.dart';
 
-/// A Polymer `<main-app>` element.
 @CustomTag('post-service')
 class PostService extends PolymerElement {
-  @observable String reversed = '';
+  //@observable List posts = [];
+  @published List posts = toObservable([]);
 
   /// Constructor used to create instance of MainApp.
-  PostService.created() : super.created();
-
-  void reverseText(Event event, Object object, PaperInput target) {
-    reversed = target.value.split('').reversed.join('');
+  PostService.created() : super.created() {
+    HttpRequest.getString("api/posts.json").then((String json) {
+      this.posts = toObservable(JSON.decode(json));
+    }).catchError((Error error) {
+      print(error.toString());
+    });
   }
 
-  // Optional lifecycle methods - uncomment if needed.
+  void postsLoaded(var e, var detail, var node) {
+    // Make a copy of the loaded data
+    print('postsLoaded');
+    //posts = this.$.ajax.response.slice(0);
+    posts = detail['response'];
+  }
 
-//  /// Called when an instance of main-app is inserted into the DOM.
-//  attached() {
-//    super.attached();
-//  }
+  void setFavorite(uid, isFavorite) {
+    // no service backend, just log the change
+    print('Favorite changed: ' + uid + ", now: " + isFavorite);
+  }
 
-//  /// Called when an instance of main-app is removed from the DOM.
-//  detached() {
-//    super.detached();
-//  }
-
-//  /// Called when an attribute (such as a class) of an instance of
-//  /// main-app is added, changed, or removed.
-//  attributeChanged(String name, String oldValue, String newValue) {
-//    super.attributeChanges(name, oldValue, newValue);
-//  }
-
-//  /// Called when main-app has been fully prepared (Shadow DOM created,
-//  /// property observers set up, event listeners attached).
-//  ready() {
-//    super.ready();
-//  }
+  ready() {
+    super.ready();
+    //posts.add(JSON.decode('{"uid": 1,"text":"Have you heard about the Web Components revolution?","username":"Eric","avatar":"../images/avatar-01.svg","favorite":false}'));
+  }
 }

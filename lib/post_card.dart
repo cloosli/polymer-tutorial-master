@@ -1,16 +1,18 @@
-// Copyright (c) 2015, <Christian Loosli>. All rights reserved. Use of this source code
+// Copyright (c) 2015, Christian Loosli. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
-import 'dart:html';
-
-import 'package:paper_elements/paper_input.dart';
 import 'package:polymer/polymer.dart';
 
 @CustomTag('post-card')
 class PostCard extends PolymerElement {
+  @PublishedProperty(reflect: true) bool favorite = false;
 
-  /// Constructor used to create instance of MainApp.
   PostCard.created() : super.created();
+
+  void favoriteTapped(event, detail, sender) {
+    this.favorite = !this.favorite;
+    this.fire('favorite-tab');
+  }
 
 // Optional lifecycle methods - uncomment if needed.
 

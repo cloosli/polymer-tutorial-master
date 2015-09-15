@@ -34,7 +34,7 @@
   <link rel="import" href="packages/paper_elements/paper_tab.html">
 
   <!-- example of your own custom element -->
-  <link rel="import" href="packages/dart_client/post_card.html">
+  <link rel="import" href="packages/dart_client/post_list.html">
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -49,14 +49,18 @@
     </core-toolbar>
 
     <div class="container" layout vertical center>
-      <post-card>
-        <img src="images/avatar-01.svg" width="70" height="70">
-        <h2>Title</h2>
-        <p>text</p>
-      </post-card>
+      <post-list show="all"></post-list>
     </div>
 
   </core-header-panel>
+  <!--
+      var tabs = document.querySelector('paper-tabs');
+    var list = document.querySelector('post-list');
+
+    tabs.addEventListener('core-select', function() {
+      list.show = tabs.selected;
+    });
+    -->
   <script type="application/dart">export 'package:polymer/init.dart';</script>
 </body>
 </html>
